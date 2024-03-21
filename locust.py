@@ -1,6 +1,6 @@
 from locust import HttpUser, task, between
 
-token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTA3OTgzMDcsImlhdCI6MTcxMDc3NjcwNywibmJmIjoxNzEwNzc2NzA3LCJ1aWQiOiIwNzRmNjIyNS02MDg2LTVkYjctYTQyNS02MmU3M2I2N2I2YjYiLCJ1c2VyX2lkIjoiTVpqQ3JLSTNrSk9EYTIzMFlvUWp5ZGZoc3RHMyJ9.x4R9L63OkMdCdIQYswOEbpzKCHG3geUIcNSRTrwVnak"
+token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTA5MzI2ODEsImlhdCI6MTcxMDkxMTA4MSwibmJmIjoxNzEwOTExMDgxLCJ1aWQiOiIwNzRmNjIyNS02MDg2LTVkYjctYTQyNS02MmU3M2I2N2I2YjYiLCJ1c2VyX2lkIjoiTVpqQ3JLSTNrSk9EYTIzMFlvUWp5ZGZoc3RHMyJ9.TICJZmCQjak4pnXFsAZT3QcnlxSVz47dBFRRK1L-pB0"
 
 
 data_payload = [
@@ -34,7 +34,7 @@ class LoadTesting(HttpUser):
     wait_time = between(0.5, 1.5)
 
     def on_start(self):
-        self.client.headers = {"Authorization": "Bearer {}".format(token)}
+        self.client.headers = {"Authorization": f"Bearer {token}"}
 
     @task
     def test(self):
